@@ -14,9 +14,7 @@
     text-overflow: ellipsis;
 }
 
-.btn-social:hover {
-    color: #eee;
-}
+
 
 .btn-social :first-child {
     position: absolute;
@@ -38,14 +36,89 @@
 }
 
 /* Add a hover effect if you want */
-.fa:hover {
-    opacity: 0.7;
-}
+
 
 /* Set a specific color for each brand */
 
-/* Facebook */
-.fa-facebook {
-    background: #3B5998;
+/* Github */
+.fa-github {
+    background: #444444;
     color: white;
+}
+
+.btn.btn-github {
+    color: #fff;
+    background-color: #444444;
+    border-color: rgba(0,0,0,0.2);
+    width: 300px;
+}
+
+.btn-social {
+    position: relative;
+    padding-left: 44px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-social :first-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    padding: 7px;
+    font-size: 1.6em;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,0.2);
+}
+
+a{
+    text-decoration: none;
+}
+.btn:hover{
+    color:white;
+}
+
+
+/* Google */
+.fa-google {
+    background: white;
+    color: black;
+}
+
+.btn.btn-google {
+    color: black;
+    background-color: white;
+    border-color: rgba(0,0,0,0.2);
+    width: 300px;
+}
+
+.btn-social {
+    position: relative;
+    padding-left: 44px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-social :first-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    padding: 7px;
+    font-size: 1.6em;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,0.2);
+}
+
+a{
+    text-decoration: none;
+}
+.btn:hover{
+    color:white;
 }
