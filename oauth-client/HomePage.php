@@ -3,9 +3,13 @@
 
 class HomePage
 {
-    public static function getHome($userName,$userEmail): string
+    public static function getHome($arrayInfo): string
     {
-
+       /* function getInfo($arrayInfo){
+            foreach ($arrayInfo as $item => $array) {
+               echo "<pre>".$array."</pre>";
+            }
+        }*/
 
         $home= "<!doctype html>
 <html lang='en'>
@@ -35,7 +39,10 @@ class HomePage
     </div>
 </nav>
 <body>
-<h1>Hello, ". $userName ."</h1>
+
+<h1>Hello, ".  $user = ($arrayInfo["name"] == null) ? $arrayInfo["email"] : $arrayInfo["name"]
+        ."</h1>
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

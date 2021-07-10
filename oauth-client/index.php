@@ -124,9 +124,7 @@ function handleFBSuccess()
     curl_close($curl);
     $user = json_decode($output);
     $array = get_object_vars($user);
-    $userName=$array["name"];
-    $userEmail=$array["email"];
-    echo HomePage::getHome($userName,$userEmail);
+    echo HomePage::getHome($array);
 
 }
 function handleGHSuccess()
@@ -158,9 +156,7 @@ function handleGHSuccess()
     curl_close($curl);
     $user = json_decode($output);
     $array = get_object_vars($user);
-    $userName=$array["name"];
-    $userEmail=$array["email"];
-    echo HomePage::getHome($userName,$userEmail);
+    echo HomePage::getHome($array);
 
 }
 
@@ -201,16 +197,17 @@ function handleGOOGLESuccess()
         'Authorization: Bearer '.$token,
     );
 
-    echo '<h3>User Info</h3>';
-    echo '<pre>';
-    $ch = curl_init('https://www.googleapis.com/oauth2/v2/userinfo?fields=name,email,id,picture,verified_email');
+    $ch = curl_init('https://www.googleapis.com/oauth2/v2/userinfo?profile');
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'Authorization: Bearer '.$token
     ]);
-    curl_exec($ch);
-    echo '</pre>';
-
-   include "home.php";
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+    $output = curl_exec($ch);
+    curl_close($ch);
+    $user = json_decode($output);
+    $array = get_object_vars($user);
+    echo HomePage::getHome($array);
   }
 
 
