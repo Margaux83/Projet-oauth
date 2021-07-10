@@ -68,10 +68,7 @@ function handleLogin()
         . "&scope=read:user&state=dsdsfsfds&redirect_uri=http://localhost:8082/ghauth-success'>
     <i class='fa fa-github'></i> Sign in with Github
 </a><br><br>
- <a class='btn btn-social btn-google link-in-popup' href='https://accounts.google.com/o/oauth2/v2/auth?"
-        . "response_type=code"
-        . "&client_id=" . CLIENT_GOOGLEID
-        . "&scope=email&state=dsdsfsfds&redirect_uri=http://localhost:8082/googleauth-success'>
+ <a class='btn btn-social btn-google link-in-popup' href=https://accounts.google.com/o/oauth2/v2/auth?scope=email&access_type=offline&response_type=code&redirect_uri=http://localhost:8082/googleauth-success&client_id=". CLIENT_GOOGLEID .">
     <i class='fa fa-google'></i> Sign in with Google
 </a><br><br>
 
@@ -170,22 +167,48 @@ function handleGHSuccess()
 function handleGOOGLESuccess()
 {
     ["code" => $code, "state" => $state] = $_GET;
-    // ECHANGE CODE => TOKEN
-    $result = file_get_contents("https://accounts.google.com/o/oauth2/v2/auth?"
-        . "client_id=" . CLIENT_GOOGLEID
-        . "&client_secret=" . CLIENT_GOOGLESECRET
-        . "&code={$code}"
-        . "&redirect_uri=http://localhost:8082/googleauth-success");
-    //$token = json_decode($result, true)["access_token"];
 
-  /* $context = stream_context_create([
-       'http' => [
-           'method' => "GET",
-           'header' => "Authorization: Bearer " . $result
-       ]
-   ]);
-    $result = file_get_contents("https://google/me?fields=id,name,email", false, $context);
-    $user = json_decode($result, true);*/
+    $params = array(
+        "code" => $code,
+        "client_id" => CLIENT_GOOGLEID,
+        "client_secret" => CLIENT_GOOGLESECRET,
+        "redirect_uri" => 'http://localhost:8082/googleauth-success',
+        "grant_type" => "authorization_code"
+    );
+
+    $ch = \curl_init('https://www.googleapis.com/oauth2/v4/token');
+
+    \curl_setopt($ch, \CURLOPT_POSTFIELDS, $params);
+    \curl_setopt($ch, \CURLOPT_RETURNTRANSFER, true);
+    \curl_setopt($ch,\CURLOPT_CONNECTTIMEOUT ,3);
+    \curl_setopt($ch,\CURLOPT_TIMEOUT, 10);
+
+    $response = \curl_exec($ch);
+    $error    = \curl_error($ch);
+    $errno    = \curl_errno($ch);
+
+    if (\is_resource($ch)) {
+        \curl_close($ch);
+    }
+
+    if (0 !== $errno) {
+        throw new \RuntimeException($error, $errno);
+    }
+
+    $token = json_decode($response, true)["access_token"];
+
+    $headers = array(
+        'Authorization: Bearer '.$token,
+    );
+
+    echo '<h3>User Info</h3>';
+    echo '<pre>';
+    $ch = curl_init('https://www.googleapis.com/oauth2/v2/userinfo?fields=name,email,id,picture,verified_email');
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer '.$token
+    ]);
+    curl_exec($ch);
+    echo '</pre>';
 
    include "home.php";
   }
