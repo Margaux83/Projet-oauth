@@ -68,7 +68,7 @@ function handleLogin()
         . "&scope=read:user&state=dsdsfsfds&redirect_uri=http://localhost:8082/ghauth-success'>
     <i class='fa fa-github'></i> Sign in with Github
 </a><br><br>
- <a class='btn btn-social btn-google link-in-popup' href=https://accounts.google.com/o/oauth2/v2/auth?scope=email&access_type=offline&response_type=code&redirect_uri=http://localhost:8082/googleauth-success&client_id=". CLIENT_GOOGLEID .">
+ <a class='btn btn-social btn-google link-in-popup' href=https://accounts.google.com/o/oauth2/v2/auth?scope=profile&access_type=offline&response_type=code&redirect_uri=http://localhost:8082/googleauth-success&client_id=". CLIENT_GOOGLEID .">
     <i class='fa fa-google'></i> Sign in with Google
 </a><br><br>
 
