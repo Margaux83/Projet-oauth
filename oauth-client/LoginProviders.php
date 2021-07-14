@@ -11,12 +11,10 @@ class LoginProviders
             <!-- Required meta tags -->
             <meta charset='utf-8'>
             <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-        
-        <link rel='stylesheet' href='style.css'>
             <!-- Bootstrap CSS -->
             <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-        
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
         </head>
             <title>Hello, world!</title>
         </head>
@@ -30,25 +28,26 @@ class LoginProviders
         </nav>
         <body>
         <h1>Login with Auth-Code</h1>
-         <a href='http://localhost:8081/auth?"
+      
+        <div class='container'>   
+        <a  class='btn btn-primary' style='background-color: #ac2bac;' href='http://localhost:8081/auth?"
                     . "response_type=code"
                     . "&client_id=" . CLIENT_ID
                     . "&scope=basic&state=dsdsfsfds'>Login with oauth-server</a>
-        <div class='container'>
-            <a class='btn btn-social btn-facebook link-in-popup' href='https://www.facebook.com/v2.10/dialog/oauth?"
+        <br><br>
+            <a class='btn btn-primary' style='background-color: #3b5998;'  href='https://www.facebook.com/v2.10/dialog/oauth?"
                     . "response_type=code"
                     . "&client_id=" . CLIENT_FBID
                     . "&scope=email&state=dsdsfsfds&redirect_uri=http://localhost:8082/fbauth-success'>
-            <i class='fa fa-facebook'></i> Sign in with Facebook
+            <i class='fab fa-facebook-f' style='color: #FFFFFF'></i> Sign in with Facebook
         </a><br><br>
-         <a class='btn btn-social btn-google link-in-popup' href=https://accounts.google.com/o/oauth2/v2/auth?scope=profile&access_type=offline&response_type=code&redirect_uri=http://localhost:8082/googleauth-success&client_id=". CLIENT_GOOGLEID .">
-            <i class='fa fa-google'></i> Sign in with Google
+         <a class='btn btn-primary' style='background-color: #DB4437;' href=https://accounts.google.com/o/oauth2/v2/auth?scope=profile&access_type=offline&response_type=code&redirect_uri=http://localhost:8082/googleauth-success&client_id=". CLIENT_GOOGLEID .">
+            <i class='fab fa-google' style='color: #FFFFFF'></i> Sign in with Google
         </a><br><br>
-        <a class='btn btn-social btn-google link-in-popup' href='https://discord.com/api/oauth2/authorize?client_id=".CLIENT_DDID."&redirect_uri=http://localhost:8082/ddauth-success&response_type=code&scope=identify&state=15773059ghq9183habn'>
-            <i class='fa fa-google'></i> Sign in with Discord
+        <a class='btn btn-primary' style='background-color: #7289da;' href='https://discord.com/api/oauth2/authorize?client_id=".CLIENT_DDID."&redirect_uri=http://localhost:8082/ddauth-success&response_type=code&scope=identify&state=15773059ghq9183habn'>
+           <i class='fab fa-discord' style='color: #FFFFFF' aria-hidden='true'></i> Sign in with Discord
         </a><br><br>
-        
-        
+       
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
