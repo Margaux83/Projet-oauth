@@ -9,10 +9,10 @@ Pour utiliser le projet :
 
 Ne pas oublier de renseigner les variables d'environnement dans les fichiers .env qu'il faut placer dans le dossier oauth-client
 
-.env :
+.env :  
 ENV=dev
 
-.env.dev :
+.env.dev :  
 STATE=  
 CLIENT_ID=  
 CLIENT_SECRET=  
