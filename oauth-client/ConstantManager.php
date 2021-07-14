@@ -18,7 +18,6 @@ class ConstantManager
             //Parse : .env.prod ou .env.dev
             $this->parseFile($this->envFile.".".$this->data["ENV"]);
         }
-
         $this->defineConstants();
 
     }
