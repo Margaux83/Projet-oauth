@@ -4,7 +4,7 @@ Projet d'authentification réalisé par Margaux HEBERT et Loudovic Rex-HARRISON 
 Possibilité de se connecter avec Facebook, Google et Discord
 
 Pour utiliser le projet :
-- Lancer la commande docker-compose up -d
+- Lancer la commande docker-compose up -d dans le répertoire Projet-oauth
 - Aller sur l'url de connexion : https://localhost:8082/login
 
 Ne pas oublier de renseigner les variables d'environnement dans les fichiers .env qu'il faut placer dans le dossier oauth-client
