@@ -1,6 +1,9 @@
 <?php
 
-
+/**
+ * Class ConstantManager
+ * Classe qui permet de récupérer les variables d'environnment du fichier .env.dev pour les utiliser dans le projet
+ */
 class ConstantManager
 {
 

@@ -73,6 +73,9 @@ class ProviderManager
 
     }
 
+    /**
+     * Fonction de déconnexion, renvoie sur la page de connexion, le token est donc détruit
+     */
     public static function logout()
     {
         header('location: /login');
