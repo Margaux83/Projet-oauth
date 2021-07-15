@@ -80,6 +80,9 @@ switch ($route) {
     case '/auth-error':
         handleError();
         break;
+    case '/logout':
+        ProviderManager::logout();
+        break;
     case '/password':
         if ($_SERVER['REQUEST_METHOD'] === "GET") {
             echo "<form method='POST'>";

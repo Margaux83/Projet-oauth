@@ -1,9 +1,8 @@
 <?php
 
-
 class HomePage
 {
-    public static function getHome($arrayInfo): string
+    public static function  getHome($arrayInfo, $token): string
     {
                 $home= "<!doctype html>
         <html lang='en'>
@@ -26,7 +25,7 @@ class HomePage
                 <div class='collapse navbar-collapse' id='navbarNav' style='color: white;'>
                     <ul class='navbar-nav'>
                         <li class='nav-item'>
-                            <a class='nav-link' aria-current='page' href='#'>HomePage</a>
+                            <a class='nav-link' aria-current='page' href='/logout'>Déconnexion</a>
                         </li>
                     </ul>
                 </div>

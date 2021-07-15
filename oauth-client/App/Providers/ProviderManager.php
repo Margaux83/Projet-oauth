@@ -69,8 +69,13 @@ class ProviderManager
         $user = json_decode($output);
 
         $array = get_object_vars($user);
-        echo HomePage::getHome($array);
+        echo HomePage::getHome($array, $_SESSION['access_token']);
 
+    }
+
+    public static function logout()
+    {
+        header('location: /login');
     }
 
 }
